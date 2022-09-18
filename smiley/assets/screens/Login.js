@@ -7,27 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import axios from 'axios';
-// import AppNav from '../navigator/appnav';
-// import Navigation from '../navigator/navigation';
-function Login({navigation}) {
+import {AuthContext} from '../navigator/authpro';
+function Login({navigation}, props) {
   const [email, setEmail] = React.useState();
   const [password, setPassword] = React.useState();
 
-  const data = {email: email, password: password};
-  // const check = async () => {
-  //   try {
-  //     console.log(data);
-
-  //     const url = 'http://169.254.150.199:8080/api/auth/login';
-
-  //     const {data: res} = await axios.post(url, data);
-  //     console.log(res.data.id);
-  //     res.data.id ? <Navigation /> : <AppNav />;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const {login} = React.useContext(AuthContext);
   return (
     <View style={styles.background}>
       <Image source={require('../img/logo.png')} style={styles.logo} />
@@ -39,7 +24,7 @@ function Login({navigation}) {
         <View style={styles.loginDetails}>
           <Text style={styles.field}>YOUR EMAIL</Text>
           <TextInput
-            placeholder="ENTER YOUR ADDRESS"
+            placeholder="ENTER YOUR EMAIL"
             style={styles.input}
             keyboardType="email-address"
             onChangeText={userEmail => setEmail(userEmail)}
@@ -61,11 +46,10 @@ function Login({navigation}) {
           <Text style={styles.btnText}>LOGIN</Text>
         </TouchableOpacity>
         <Text
-          style={styles.acc}
-          onPress={() => navigation.navigate('Register')}>
-          CREATE NEW ACCOUNT
+          style={styles.forPwa}
+          onPress={() => navigation.navigate('Forgot')}>
+          FORGOT PASSWORD
         </Text>
-        <Text style={styles.forPwa}>FORGOT PASSWORD</Text>
       </View>
     </View>
   );
