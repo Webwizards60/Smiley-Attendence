@@ -46,7 +46,12 @@ function Home({navigation}, props) {
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navMenu}>
           <Text>
-            <Icon name="user" size={30} color="#0AA1DD" />
+            <Icon
+              name="user"
+              size={30}
+              color="#0AA1DD"
+              onPress={() => navigation.navigate('Profile')}
+            />
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.home}>

@@ -57,7 +57,11 @@ function Report({navigation}) {
       </View>
 
       <View style={styles.leaveBtn}>
-        <Text style={styles.reqLeave}>REQUEST LEAVE</Text>
+        <Text
+          style={styles.reqLeave}
+          onPress={() => navigation.navigate('Leave')}>
+          REQUEST LEAVE
+        </Text>
         <Text style={styles.attRep}>ATTENDENCE REPORT</Text>
       </View>
     </View>
