@@ -6,7 +6,12 @@ import {
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import logo from '../img/cup.png';
 import QRCode from 'react-native-qrcode-svg';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -19,7 +24,7 @@ function Home({navigation}, props) {
   const input = 'Smiley Drinks .co';
 
   return (
-    <SafeAreaView style={styles.homeScreen}>
+    <View style={styles.homeScreen}>
       <TouchableOpacity style={styles.logout_sec} onPress={() => logout()}>
         <Icon name="arrow-right" size={25} color="#0AA1DD" />
         <Text style={styles.logout_txt}>LOGOUT</Text>
@@ -35,10 +40,10 @@ function Home({navigation}, props) {
         <View style={styles.qrContainer}>
           <QRCode
             value={input}
-            size={350}
+            size={hp(35)}
             style={styles.qrCode}
             logo={logo}
-            logoBorderRadius={50}
+            logoBorderRadius={wp(5)}
             logoBackgroundColor="#0AA1DD"
           />
         </View>
@@ -71,35 +76,35 @@ function Home({navigation}, props) {
           </Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   homeScreen: {
-    width: '100%',
-    height: '100%',
+    width: wp('100%'),
+    height: hp('110%'),
     backgroundColor: '#fff',
   },
   logout_sec: {
-    paddingVertical: '2.5%',
-    width: '27%',
-    paddingHorizontal: '2.5%',
+    paddingVertical: hp('2.5%'),
+    width: wp('27%'),
+    paddingHorizontal: wp('2.5%'),
     backgroundColor: '#f0faff',
     display: 'flex',
     flexDirection: 'row',
     alignSelf: 'flex-end',
     justifyContent: 'space-around',
-    borderRadius: 15,
-    marginRight: '2.5%',
-    marginTop: '2.5%',
+    borderRadius: wp(1.5),
+    marginRight: wp('2.5%'),
+    marginTop: hp('2.5%'),
   },
   qrSec: {
-    width: '100%',
+    width: wp('100%'),
     alignItems: 'center',
   },
   logout_txt: {
-    fontSize: 18,
+    fontSize: hp(1.8),
     color: '#0aa1dd',
     fontWeight: '500',
   },
@@ -108,38 +113,38 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: '10%',
+    marginTop: hp('2%'),
     backgroundColor: '#f0faff',
-    marginHorizontal: '10%',
-    paddingVertical: '5%',
-    borderRadius: 25,
+    marginHorizontal: wp('10%'),
+    paddingVertical: wp('5%'),
+    borderRadius: wp(2.5),
   },
   profile: {
-    height: 120,
-    width: 120,
-    borderRadius: 25,
+    height: hp(12),
+    width: hp(12),
+    borderRadius: wp(2.5),
   },
   name: {
-    fontSize: 35,
+    fontSize: hp(3.5),
     fontWeight: '500',
   },
   emp_det: {
-    marginLeft: '5%',
+    marginLeft: wp('5%'),
   },
   desig: {
-    fontSize: 20,
+    fontSize: hp(2.0),
     fontWeight: '300',
   },
   qrContainer: {
-    height: 420,
-    width: 420,
-    borderRadius: 50,
+    height: hp(42),
+    width: hp(42),
+    borderRadius: wp(5.0),
     backgroundColor: '#fff',
-    elevation: 35,
+    elevation: hp(3.5),
     shadowColor: '#8c8c8c',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: '20%',
+    marginVertical: hp('8%'),
   },
   navBar: {
     backgroundColor: '#fff',
@@ -147,33 +152,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 25,
-    marginHorizontal: 55,
-    height: 85,
-    borderRadius: 25,
-    elevation: 15,
+    paddingHorizontal: wp(4),
+    marginHorizontal: hp(5.5),
+    height: hp(8.5),
+    borderRadius: wp(2.5),
+    elevation: hp(1.5),
     shadowColor: '#696969',
   },
   navMenu: {
     alignItems: 'center',
   },
   navItem: {
-    fontSize: 15,
+    fontSize: hp(1.5),
     color: '#0AA1DD',
   },
   home: {
     backgroundColor: '#0AA1DD',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 80,
-    width: 80,
-    borderRadius: 105,
-    top: '-10%',
-    elevation: 15,
+    height: hp(8),
+    width: hp(8),
+    borderRadius: wp(10),
+    top: hp('-3%'),
+    elevation: hp(1.5),
     shadowColor: '#006691',
   },
   homeTxt: {
-    fontSize: 15,
+    fontSize: hp(1.5),
     color: '#fff',
     fontWeight: '550',
   },

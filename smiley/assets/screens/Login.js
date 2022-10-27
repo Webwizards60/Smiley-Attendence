@@ -6,13 +6,13 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
-import {AuthContext} from '../navigator/authpro';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 function Login({navigation}, props) {
-  const [email, setEmail] = React.useState();
-  const [password, setPassword] = React.useState();
-
-  const {login} = React.useContext(AuthContext);
   return (
     <View style={styles.background}>
       <Image source={require('../img/logo.png')} style={styles.logo} />
@@ -27,7 +27,6 @@ function Login({navigation}, props) {
             placeholder="ENTER YOUR EMAIL"
             style={styles.input}
             keyboardType="email-address"
-            onChangeText={userEmail => setEmail(userEmail)}
             autoCorrect={false}
             autoCapitalize="none"
           />
@@ -35,7 +34,6 @@ function Login({navigation}, props) {
           <TextInput
             placeholder="ENTER YOUR PASSWORD"
             style={styles.input}
-            onChangeText={userPassword => setPassword(userPassword)}
             autoCorrect={false}
             autoCapitalize="none"
           />
@@ -58,111 +56,103 @@ function Login({navigation}, props) {
 const styles = StyleSheet.create({
   logo: {
     alignSelf: 'center',
-    height: 80,
-    width: 150,
-    marginTop: '5%',
+    height: hp(8.0),
+    width: wp(30),
+    marginTop: hp('5%'),
   },
 
   welcomeTxt: {
     alignSelf: 'center',
-    marginTop: 5,
-    fontSize: 30,
+    marginTop: hp(0.5),
+    fontSize: hp(3),
     fontWeight: '500',
   },
 
   headerTxt: {
     alignSelf: 'center',
-    fontSize: 15,
-    marginTop: 8,
+    fontSize: hp(1.5),
+    marginTop: hp(0.8),
   },
 
   background: {
-    height: '100%',
-    width: '100%',
+    height: hp('100%'),
+    width: wp('100%'),
     backgroundColor: '#DFF6FF',
   },
 
   detailbox: {
-    height: '75%',
-    width: '100%',
+    height: hp('75%'),
+    width: wp('100%'),
     position: 'absolute',
-    bottom: 0,
+    bottom: hp(-1.2),
     backgroundColor: '#fff',
-    elevation: 88,
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50,
+    borderTopLeftRadius: wp(5),
+    borderTopRightRadius: wp(5),
   },
 
   image: {
-    height: 250,
-    width: 190,
+    height: hp(25),
+    width: wp(40),
     position: 'absolute',
-    right: 25,
-    top: -125,
+    right: wp(2.5),
+    top: hp(-12.5),
   },
 
   login: {
     alignSelf: 'center',
-    marginTop: 35,
-    fontSize: 40,
+    marginTop: hp(3.5),
+    fontSize: hp(4),
     fontWeight: 'bold',
     color: '#7C7C7C',
   },
 
   field: {
-    fontSize: 20,
-    marginLeft: 40,
+    fontSize: hp(2),
+    marginLeft: wp(8),
     color: '#0AA1DD',
-    marginBottom: 8,
+    marginBottom: hp(0.8),
   },
 
   input: {
     backgroundColor: '#fff',
-    width: '85%',
-    height: 65,
+    width: wp('85%'),
+    height: hp(6.5),
     alignSelf: 'center',
-    borderRadius: 20,
-    fontSize: 15,
-    padding: 15,
-    marginBottom: 55,
-    elevation: 8,
+    borderRadius: wp(2),
+    fontSize: hp(1.5),
+    padding: wp(1.5),
+    marginBottom: hp(5.5),
+    elevation: hp(0.8),
     shadowColor: '#747474',
   },
 
   loginDetails: {
-    marginTop: 55,
+    marginTop: wp(5.5),
   },
 
   button: {
-    height: 75,
-    width: '40%',
+    height: hp(7.5),
+    width: wp('40%'),
     alignSelf: 'center',
-    borderRadius: 25,
+    borderRadius: wp(2.5),
     backgroundColor: '#0AA1DD',
-    elevation: 15,
+    elevation: hp(1.5),
     shadowColor: '#027bab',
-    marginTop: 55,
+    marginTop: hp(5.5),
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   btnText: {
-    fontSize: 35,
+    fontSize: hp(3.5),
     color: '#fff',
     fontWeight: '500',
   },
 
-  acc: {
-    alignSelf: 'center',
-    fontSize: 25,
-    marginTop: 35,
-    fontWeight: '400',
-  },
-
   forPwa: {
-    fontSize: 20,
+    fontSize: hp(2),
     alignSelf: 'center',
-    marginTop: 55,
+    marginTop: hp(5.5),
     color: '#a3a3a3',
   },
 });

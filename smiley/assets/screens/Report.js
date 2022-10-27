@@ -1,6 +1,17 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 function Report({navigation}) {
   return (
@@ -45,10 +56,6 @@ function Report({navigation}) {
               <Text style={styles.Ltext}>Leaves Taken</Text>
               <Text style={styles.days}>15 Days</Text>
             </View>
-            <View style={styles.LItem}>
-              <Text style={styles.Ltext}>Leaves Remaining</Text>
-              <Text style={styles.days}>45 Days</Text>
-            </View>
           </View>
           <TouchableOpacity style={styles.leaveRpt}>
             <Text style={styles.leaveTxt}>GET REPORT</Text>
@@ -62,7 +69,6 @@ function Report({navigation}) {
           onPress={() => navigation.navigate('Leave')}>
           REQUEST LEAVE
         </Text>
-        <Text style={styles.attRep}>ATTENDENCE REPORT</Text>
       </View>
     </View>
   );
@@ -70,10 +76,10 @@ function Report({navigation}) {
 
 const styles = StyleSheet.create({
   background: {
-    height: '100%',
-    width: '100%',
+    height: hp('110%'),
+    width: wp('100%'),
     backgroundColor: '#fff',
-    padding: '5%',
+    padding: wp('5%'),
   },
 
   welcome: {
@@ -83,58 +89,58 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    fontSize: 20,
+    fontSize: hp(2),
     color: '#454545',
   },
 
   card: {
-    height: '30%',
-    width: '100%',
+    height: hp('30%'),
+    width: wp('90%'),
     backgroundColor: '#fff',
-    borderRadius: 25,
-    marginTop: '12%',
-    elevation: 45,
+    borderRadius: wp(2.5),
+    marginTop: hp('5%'),
+    elevation: hp(4.5),
     shadowColor: '#656565',
   },
 
   card_img: {
     height: '100%',
     width: '100%',
-    borderRadius: 25,
+    borderRadius: wp(2.5),
   },
 
   report_info: {
-    height: '40%',
+    height: '39%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, .5)',
     bottom: '27.2%',
-    borderBottomRightRadius: 25,
-    borderBottomLeftRadius: 25,
-    paddingVertical: 15,
-    paddingHorizontal: 20,
+    borderBottomRightRadius: wp(2.5),
+    borderBottomLeftRadius: wp(2.5),
+    paddingVertical: wp(1.5),
+    paddingHorizontal: hp(2),
   },
 
   profile_img: {
-    height: 80,
-    width: 80,
-    borderRadius: 150,
+    height: hp(8),
+    width: hp(8),
+    borderRadius: wp(15),
   },
 
   salary: {
-    fontSize: 35,
+    fontSize: hp(3.5),
     color: '#757575',
-    letterSpacing: 2,
+    letterSpacing: wp(0.5),
   },
 
   LeaveInfo: {
-    marginTop: '8%',
+    marginTop: hp('8%'),
   },
 
   LText: {
-    fontSize: 35,
+    fontSize: hp(3.5),
     color: '#898989',
   },
 
@@ -146,14 +152,14 @@ const styles = StyleSheet.create({
 
   leaveInfo: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    paddingVertical: 55,
+    paddingVertical: hp(3.5),
     marginTop: '5%',
-    borderRadius: 50,
-    elevation: 35,
+    borderRadius: wp(5),
+    elevation: hp(3.5),
     shadowColor: '#787878',
   },
 
@@ -165,26 +171,26 @@ const styles = StyleSheet.create({
   },
 
   Ltext: {
-    fontSize: 15,
+    fontSize: hp(2.5),
     color: '#898989',
     marginBottom: '5%',
   },
 
   days: {
-    fontSize: 35,
+    fontSize: hp(3.5),
     color: '#0AA1DD',
   },
 
   leaveRpt: {
-    padding: 15,
+    padding: hp(1.5),
     backgroundColor: '#0AA1DD',
     marginTop: '10%',
-    borderRadius: 15,
+    borderRadius: wp(1.5),
   },
 
   leaveTxt: {
     color: '#fff',
-    fontSize: 25,
+    fontSize: hp(2.5),
   },
 
   leaveBtn: {
@@ -196,19 +202,14 @@ const styles = StyleSheet.create({
   },
 
   reqLeave: {
-    padding: 15,
+    padding: hp(1.5),
     backgroundColor: '#0AA1DD',
     marginBottom: '5%',
-    fontSize: 20,
+    fontSize: hp(2),
     color: '#fff',
-    elevation: 10,
+    elevation: hp(1),
     shadowColor: '#0AA1DD',
-    borderRadius: 10,
-  },
-
-  attRep: {
-    fontSize: 25,
-    color: '#828282',
+    borderRadius: wp(1),
   },
 });
 

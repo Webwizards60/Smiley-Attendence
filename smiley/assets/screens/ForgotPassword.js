@@ -6,116 +6,100 @@ import {
   View,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-function ForgotPassword() {
+function ForgotPassword({navigation}) {
   return (
-    <ScrollView>
-      <SafeAreaView>
-        <View style={styles.imgSec}>
-          <Image source={require('../img/Lock.png')} style={styles.Lock} />
-        </View>
-        <View style={styles.newPswd}>
-          <Text style={styles.title}>Forgot Password</Text>
-          <View style={styles.newPswdInfo}>
-            <View style={styles.section}>
-              <Text style={styles.info}>ENTER YOUR EMAIL</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="enter your email"
-                keyboardType="email"
-              />
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.info}>ENTER NEW PASSWORD</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="enter new password"
-              />
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.info}>CONFIRM NEW PASSWORD</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="confirm your password"
-              />
-            </View>
+    <View style={styles.main}>
+      <View style={styles.imgSec}>
+        <Image source={require('../img/Lock.png')} style={styles.Lock} />
+      </View>
+      <View style={styles.newPswd}>
+        <Text style={styles.title}>Forgot Password</Text>
+        <View style={styles.newPswdInfo}>
+          <View style={styles.section}>
+            <Text style={styles.info}>ENTER YOUR EMAIL</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="enter your email"
+              keyboardType="email"
+            />
           </View>
-          <View>
-            <Text style={styles.button}>CHANGE PASSWORD</Text>
-          </View>
-          <Text style={styles.endTxt}>
-            OR PLEASE CONTACT YOUR ADMINISTRATOR
-          </Text>
         </View>
-      </SafeAreaView>
-    </ScrollView>
+        <TouchableOpacity onPress={() => navigation.navigate('Otp')}>
+          <Text style={styles.button}>CHANGE PASSWORD</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  main: {
+    backgroundColor: '#fff',
+    height: hp('100%'),
+    display: 'flex',
+    flexDirection: 'column',
+  },
   Lock: {
-    height: 300,
-    width: 300,
-    marginBottom: 25,
+    height: hp(30),
+    width: hp(30),
+    marginBottom: hp(2.5),
   },
   imgSec: {
     display: 'flex',
     alignItems: 'center',
   },
   newPswd: {
-    backgroundColor: '#fff',
-    position: 'relative',
-    borderRadius: 50,
-    height: '80%',
     alignItems: 'center',
+    paddingVertical: hp(1),
   },
   title: {
-    fontSize: 40,
-    marginTop: 25,
+    fontSize: hp(4.0),
+    marginTop: hp(2.5),
     color: '#123456',
   },
   newPswdInfo: {
-    marginTop: 35,
+    marginTop: hp(3.5),
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    width: '100%',
-    paddingHorizontal: '5%',
+    width: wp('95%'),
+    padding: wp('5%'),
   },
   section: {
-    marginBottom: 25,
+    marginBottom: hp(2.5),
   },
   input: {
-    height: 75,
+    height: hp(7.5),
     backgroundColor: '#fff',
-    borderRadius: 25,
-    marginTop: 10,
-    elevation: 20,
+    borderRadius: wp(2.5),
+    marginTop: hp(1),
+    elevation: hp(2),
     shadowColor: '#686868',
-    paddingHorizontal: '5%',
-    fontSize: 18,
+    paddingHorizontal: wp('5%'),
+    fontSize: hp(1.8),
   },
   info: {
-    fontSize: 20,
+    fontSize: hp(2),
     color: '#0AA1DD',
   },
   button: {
-    paddingVertical: 20,
-    paddingHorizontal: 35,
+    paddingVertical: hp(2),
+    paddingHorizontal: wp(5),
     backgroundColor: '#0AA1DD',
-    marginTop: 25,
-    borderRadius: 20,
-    elevation: 15,
+    marginTop: hp(2.5),
+    borderRadius: wp(2.0),
+    elevation: hp(1.5),
     shadowColor: '#0AA1DD',
     color: '#fff',
-    fontSize: 15,
-  },
-  endTxt: {
-    marginTop: 25,
-    fontSize: 20,
-    marginBottom: 35,
+    fontSize: hp(1.5),
   },
 });
 

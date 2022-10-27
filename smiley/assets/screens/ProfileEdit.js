@@ -6,7 +6,12 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 function ProfileEdit() {
   return (
@@ -24,10 +29,18 @@ function ProfileEdit() {
         <TextInput placeholder="Edit your Name" style={styles.Input} />
         <Text style={styles.Text}>Phone No.</Text>
         <TextInput placeholder="Edit your Phone No." style={styles.Input} />
-        <Text style={styles.Text}>Employee Id</Text>
-        <TextInput placeholder="Edit your Employee Id" style={styles.Input} />
-        <Text style={styles.Text}>Profession</Text>
-        <TextInput placeholder="Edit your Profession" style={styles.Input} />
+        <Text style={styles.Text}>Create Password</Text>
+        <TextInput
+          placeholder="Create a New Password"
+          style={styles.Input}
+          secureTextEntry={true}
+        />
+        <Text style={styles.Text}>Confirm Password</Text>
+        <TextInput
+          placeholder="Confirm your password"
+          style={styles.Input}
+          secureTextEntry={true}
+        />
       </View>
       <TouchableOpacity style={styles.Button}>
         <Text style={styles.btnTxt}>Submit Details</Text>
@@ -38,10 +51,12 @@ function ProfileEdit() {
 
 const styles = StyleSheet.create({
   background: {
-    height: '100%',
-    width: '100%',
+    height: hp('100%'),
+    width: wp('100%'),
     backgroundColor: '#fff',
-    padding: 25,
+    padding: wp(2.5),
+    display: 'flex',
+    justifyContent: 'center',
   },
 
   ImageSection: {
@@ -51,61 +66,61 @@ const styles = StyleSheet.create({
   },
 
   Image: {
-    height: 120,
-    width: 120,
-    borderRadius: 60,
+    height: hp(12),
+    width: hp(12),
+    borderRadius: wp(6),
   },
 
   Name: {
-    fontSize: 35,
+    fontSize: hp(3.5),
     fontWeight: '600',
-    marginLeft: 25,
+    marginLeft: wp(2.5),
   },
 
   Profession: {
-    marginLeft: 25,
-    fontSize: 20,
+    marginLeft: wp(2.5),
+    fontSize: hp(2),
   },
 
   Text: {
-    fontSize: 25,
+    fontSize: hp(2.5),
     fontWeight: '700',
     color: '#0AA1DD',
   },
 
   Input: {
-    fontSize: 20,
-    marginBottom: 25,
-    marginTop: 10,
-    padding: 20,
-    elevation: 25,
+    fontSize: hp(2),
+    marginBottom: hp(5),
+    marginTop: hp(2),
+    padding: wp(2),
+    elevation: hp(2.5),
     backgroundColor: '#fff',
     shadowColor: '#585858',
-    borderRadius: 15,
+    borderRadius: wp(1.5),
   },
 
   EditProfile: {
-    padding: 15,
-    marginTop: '15%',
+    padding: wp(1.5),
+    marginTop: hp(1.5),
   },
 
   Button: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: '15%',
+    marginTop: hp(1.5),
   },
 
   btnTxt: {
     backgroundColor: '#0AA1DD',
-    padding: 15,
-    fontSize: 25,
+    padding: wp(3),
+    fontSize: hp(2.5),
     fontWeight: '700',
     color: '#fff',
-    borderRadius: 15,
-    elevation: 15,
+    borderRadius: wp(1.5),
+    elevation: hp(1.5),
     shadowColor: '#0AA1DD',
-  }
+  },
 });
 
 export default ProfileEdit;

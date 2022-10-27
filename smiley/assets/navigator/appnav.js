@@ -9,6 +9,8 @@ import ForgotPswd from '../screens/ForgotPassword';
 import {useLogin} from './authpro';
 import Leave from '../screens/Leave';
 import ProfileEdit from '../screens/ProfileEdit';
+import Otp from '../screens/otp';
+import Change from '../screens/changepwd';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +27,8 @@ function AppNav() {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Leave" component={Leave} />
           <Stack.Screen name="Profile" component={ProfileEdit} />
+          <Stack.Screen name="Otp" component={Otp} />
+          <Stack.Screen name="Change" component={Change} />
         </Stack.Navigator>
       </NavigationContainer>
       {loginPending ? <AppLoader /> : null}

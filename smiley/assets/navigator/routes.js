@@ -10,7 +10,7 @@ function Routes() {
   const [initializing, setInitializing] = React.useState(true);
   const {setLoginPending} = useLogin();
 
-  const onAuthStateChanged = user => {
+  const onAuthStateChanged = (user) => {
     setUser(user);
     if (initializing) setInitializing(false);
   };
@@ -20,7 +20,7 @@ function Routes() {
     return subscriber;
   }, []);
 
-  if (initializing) return null;
+  if (initializing) {return null;}
 
   return (
     <NavigationContainer independent={true}>
