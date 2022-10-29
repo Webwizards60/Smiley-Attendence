@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Image,
-  Text,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -29,13 +21,15 @@ function Home({navigation}, props) {
         <Icon name="arrow-right" size={25} color="#0AA1DD" />
         <Text style={styles.logout_txt}>LOGOUT</Text>
       </TouchableOpacity>
-      <View style={styles.profilesec}>
+      <TouchableOpacity
+        style={styles.profilesec}
+        onPress={() => navigation.navigate('Profile')}>
         <Image style={styles.profile} source={require('../img/person.png')} />
         <View style={styles.emp_det}>
           <Text style={styles.name}>John Doe</Text>
           <Text style={styles.desig}>Employee</Text>
         </View>
-      </View>
+      </TouchableOpacity>
       <View style={styles.qrSec}>
         <View style={styles.qrContainer}>
           <QRCode

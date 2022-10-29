@@ -4,11 +4,9 @@ import {
   Text,
   TextInput,
   View,
-  ScrollView,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -34,6 +32,9 @@ function ForgotPassword({navigation}) {
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('Otp')}>
           <Text style={styles.button}>CHANGE PASSWORD</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.cancel}>Login Instead</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -99,7 +100,12 @@ const styles = StyleSheet.create({
     elevation: hp(1.5),
     shadowColor: '#0AA1DD',
     color: '#fff',
-    fontSize: hp(1.5),
+    fontSize: hp(2),
+  },
+
+  cancel: {
+    fontSize: hp(2.5),
+    marginTop: hp(2),
   },
 });
 

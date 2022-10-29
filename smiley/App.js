@@ -2,11 +2,10 @@ import * as React from 'react';
 import Routes from './assets/navigator/routes';
 import AuthProvider from './assets/navigator/authpro';
 
-
 function App() {
-  return(
+  return (
     <AuthProvider>
-        <Routes/>
+      <Routes />
     </AuthProvider>
   );
 }

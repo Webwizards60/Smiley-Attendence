@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  ScrollView,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -13,9 +12,8 @@ import {
 } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {SafeAreaView} from 'react-native-safe-area-context';
 
-const Report = ({navigation}) => {
+const Report = ({ navigation }) => {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -84,9 +82,19 @@ const Report = ({navigation}) => {
           style={styles.Input}
         />
       </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.btnText}>Submit Request</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonSec}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.btnText}>Submit Request</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonC}
+          onPress={() => navigation.navigate('Report')}>
+          <Text
+            style={styles.btnTextC}>
+            Cancel
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -130,22 +138,42 @@ const styles = StyleSheet.create({
 
   button: {
     backgroundColor: '#0AA1DD',
-    padding: wp(2.5),
+    height: hp(6),
+    width: wp(40),
     marginTop: hp(2.5),
     borderRadius: wp(1),
     elevation: hp(1.5),
+    alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: '#0AA1DD',
   },
 
   btnText: {
-    fontSize: hp(2),
+    fontSize: hp(2.5),
     color: '#fff',
+  },
+
+  buttonC: {
+    backgroundColor: '#fff',
+    height: hp(6),
+    width: wp(40),
+    borderRadius: wp(1),
+    marginTop: hp(3),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: '#0AA1DD',
+  },
+
+  btnTextC: {
+    fontSize: hp(2.5),
+    color: '#0AA1DD',
   },
 
   Icon: {
     position: 'absolute',
     top: hp(2.5),
-    left: wp(5),
+    right: wp(5),
   },
 
   date: {
@@ -182,6 +210,11 @@ const styles = StyleSheet.create({
     borderRadius: wp(1),
     color: '#858585',
     shadowColor: '#787878',
+  },
+
+  buttonSec: {
+    display: 'flex',
+    flexDirection: 'column',
   },
 });
 

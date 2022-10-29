@@ -6,14 +6,13 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  ScrollView,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-function ProfileEdit() {
+function ProfileEdit({navigation}) {
   return (
     <View style={styles.background}>
       <View style={styles.ImageSection}>
@@ -42,9 +41,16 @@ function ProfileEdit() {
           secureTextEntry={true}
         />
       </View>
-      <TouchableOpacity style={styles.Button}>
-        <Text style={styles.btnTxt}>Submit Details</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonSec}>
+        <TouchableOpacity style={styles.Button}>
+          <Text style={styles.btnTxt}>Submit Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.Buttonc}
+          onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.btnTxtc}>Cancel</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -63,6 +69,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 
   Image: {
@@ -90,7 +97,7 @@ const styles = StyleSheet.create({
 
   Input: {
     fontSize: hp(2),
-    marginBottom: hp(5),
+    marginBottom: hp(2),
     marginTop: hp(2),
     padding: wp(2),
     elevation: hp(2.5),
@@ -100,7 +107,7 @@ const styles = StyleSheet.create({
   },
 
   EditProfile: {
-    padding: wp(1.5),
+    padding: wp(4),
     marginTop: hp(1.5),
   },
 
@@ -109,17 +116,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: hp(1.5),
-  },
-
-  btnTxt: {
+    height: hp(6),
+    width: wp(40),
     backgroundColor: '#0AA1DD',
-    padding: wp(3),
-    fontSize: hp(2.5),
-    fontWeight: '700',
-    color: '#fff',
     borderRadius: wp(1.5),
     elevation: hp(1.5),
     shadowColor: '#0AA1DD',
+  },
+
+  btnTxt: {
+    fontSize: hp(2.5),
+    fontWeight: '700',
+    color: '#fff',
+  },
+
+  Buttonc: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: hp(3),
+    height: hp(6),
+    width: wp(40),
+    backgroundColor: '#fff',
+    borderWidth: 2,
+    borderColor: '#0AA1DD',
+    borderRadius: wp(1),
+  },
+
+  btnTxtc: {
+    fontSize: hp(2.5),
+    fontWeight: '700',
+    color: '#0AA1DD',
+  },
+
+  buttonSec: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
